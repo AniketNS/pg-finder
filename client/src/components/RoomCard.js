@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 
 function RoomCard(props) {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
   const navigate = useNavigate(); // Get the navigate function from React Router
   const userId = localStorage.getItem("userId"); // Step 1: Retrieve userId from localStorage
@@ -47,7 +48,7 @@ function RoomCard(props) {
 
   const getThumbnailImageUrl = (thumbnailPath) => {
     // You may need to replace 'YOUR_BASE_URL' with the actual base URL of your images.
-    const baseUrl = "http://localhost:3001"; // Replace with your actual base URL
+    const baseUrl = SERVER_URL; // Replace with your actual base URL
     return `${baseUrl}${thumbnailPath}`;
   };
 

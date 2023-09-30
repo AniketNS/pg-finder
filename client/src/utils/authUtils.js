@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export default async function isLoggedIn() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -9,7 +10,7 @@ export default async function isLoggedIn() {
 
   try {
     const response = await axios.post(
-      "http://localhost:3001/api/validate",
+      `${SERVER_URL}/api/validate`,
       null, // You don't need to send a request body
       {
         headers: {

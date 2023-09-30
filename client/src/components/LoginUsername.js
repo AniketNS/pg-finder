@@ -8,11 +8,13 @@ export default function LoginUsername() {
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
   const handleCheckUsername = async (e) => {
     e.preventDefault();
   
     try {
-      const response = await axios.post('http://localhost:3001/api/checkUsername', {
+      const response = await axios.post(`${SERVER_URL}/api/checkUsername`, {
         usernameOrEmail,
       });
   

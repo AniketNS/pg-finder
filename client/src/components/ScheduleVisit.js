@@ -4,6 +4,7 @@ import "./styles/ScheduleVisit.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function ScheduleVisit() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
@@ -44,7 +45,7 @@ export default function ScheduleVisit() {
       };
 
       const response = await axios.post(
-        "http://localhost:3001/api/schedule",
+        `${SERVER_URL}/api/schedule`,
         formDataWithIds
       );
 

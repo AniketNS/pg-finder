@@ -5,6 +5,7 @@
 
 
   export default function Register() {
+    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
     const [successMessage, setSuccessMessage] = useState(""); // State for success message
     const [errorMessage, setErrorMessage] = useState('');
@@ -58,7 +59,7 @@
       formData.append("gender", userData.gender);
 
       try {
-        const response = await axios.post("http://localhost:3001/api/register", formData);
+        const response = await axios.post(`${SERVER_URL}/api/register`, formData);
 
         // const { message, token } = response.data; // Uncomment if you want to use token
         const { message } = response.data; // removed token from upper line to get rid of error

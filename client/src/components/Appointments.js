@@ -4,6 +4,7 @@ import "./styles/Appointments.css";
 import { useNavigate } from 'react-router-dom';
 
 export default function UserAppointments() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;  
 
   const navigate = useNavigate(); // Initialize useNavigate
 
@@ -23,7 +24,7 @@ export default function UserAppointments() {
     }
 
     axios
-      .get(`http://localhost:3001/api/appointments/${userId}`)
+      .get(`${SERVER_URL}/api/appointments/${userId}`)
       .then((response) => {
         setAppointments(response.data);
       })
@@ -60,7 +61,7 @@ export default function UserAppointments() {
       if (currentStatus === "pending") {
         if (action === "cancel" || action === "approve") {
           axios
-            .put(`http://localhost:3001/api/appointments/${appointmentId}`, {
+            .put(`${SERVER_URL}/api/appointments/${appointmentId}`, {
               status: newStatus,
             })
             .then((response) => {

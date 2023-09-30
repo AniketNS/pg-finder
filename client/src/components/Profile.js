@@ -7,6 +7,8 @@ import isLoggedIn from "../utils/authUtils";
 
 export default function Profile() {
 
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -56,7 +58,7 @@ export default function Profile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
-        `http://localhost:3001/api/profile/${userId}`,
+        `${SERVER_URL}/api/profile/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -108,7 +110,7 @@ export default function Profile() {
       }
 
       const response = await axios.put(
-        `http://localhost:3001/api/profile/${userId}`,
+        `${SERVER_URL}/api/profile/${userId}`,
         formData, // Send the merged data to the server
         {
           headers: {

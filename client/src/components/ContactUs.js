@@ -4,6 +4,7 @@ import "./styles/ContactUs.css";
 import axios from "axios";
 
 export default function ContactUs() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -19,7 +20,7 @@ export default function ContactUs() {
     };
 
     try {
-      await axios.post("http://localhost:3001/api/messages", data);
+      await axios.post(`${SERVER_URL}/api/messages`, data);
 
       // Display success message
       setSuccessMessage("Message sent successfully!");

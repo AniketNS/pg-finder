@@ -5,6 +5,7 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
 export default function LoginPassword() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState(''); // Add success message state
@@ -22,7 +23,7 @@ export default function LoginPassword() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3001/api/login', {
+      const response = await axios.post(`${SERVER_URL}/api/login`, {
         usernameOrEmail: email,
         password,
       });

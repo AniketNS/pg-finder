@@ -4,11 +4,12 @@ import axios from 'axios';
 import './styles/PopulateFeatured.css';
 
 export default function PopulateFeatured() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [featuredRooms, setFeaturedRooms] = useState([]);
 
   useEffect(() => {
     // Fetch featured room data from your Express server when the component mounts
-    axios.get('http://localhost:3001/api/getfeaturedrooms')
+    axios.get(`${SERVER_URL}/api/getfeaturedrooms`)
       .then((response) => {
         setFeaturedRooms(response.data);
       })

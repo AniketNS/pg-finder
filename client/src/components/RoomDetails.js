@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./styles/RoomDetails.css";
 
 function RoomDetails() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [roomData, setRoomData] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function RoomDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/getroom/${roomId}`)
+      .get(`${SERVER_URL}/api/getroom/${roomId}`)
       .then((response) => {
         const data = response.data;
         if (data) {
@@ -66,8 +67,8 @@ function RoomDetails() {
     peopleRated,
   } = roomData;
 
-  const thumbnailImageUrl = `http://localhost:3001${thumbnailImage}`;
-  const photoUrls = photos.map((photo) => `http://localhost:3001${photo}`);
+  const thumbnailImageUrl = `${SERVER_URL}${thumbnailImage}`;
+  const photoUrls = photos.map((photo) => `${SERVER_URL}${photo}`);
 
   const handleSchedule = () => {
     // Navigate to the room details page with the room ID
@@ -80,7 +81,7 @@ function RoomDetails() {
     if (window.confirm("Are you sure you want to delete this room?")) {
       // You can send a DELETE request to your server here
       axios
-        .delete(`http://localhost:3001/api/deleteroom/${roomId}`)
+        .delete(`${SERVER_URL}/api/deleteroom/${roomId}`)
         .then((response) => {
           
           alert("Room deleted successfully!");

@@ -4,6 +4,7 @@ import "./styles/AddRoom.css";
 import { useNavigate } from "react-router-dom";
 
 export default function AddRoom() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
   const initialRoomData = {
     roomName: "",
@@ -82,7 +83,7 @@ export default function AddRoom() {
       }
   
       // Send the formData to your server using Axios
-      await axios.post("http://localhost:3001/api/createroom", formData);
+      await axios.post(`${SERVER_URL}/api/createroom`, formData);
   
       // Handle the successful response here
     } catch (error) {

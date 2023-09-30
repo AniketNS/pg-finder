@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./styles/FeaturedCard.css";
 
 export default function FeaturedCard(props) {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
   const {
     roomName,
@@ -22,7 +23,7 @@ export default function FeaturedCard(props) {
   };
 
   const getThumbnailImageUrl = (thumbnailPath) => {
-    const baseUrl = "http://localhost:3001";
+    const baseUrl = SERVER_URL;
     return `${baseUrl}${thumbnailPath}`;
   };
 

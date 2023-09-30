@@ -3,12 +3,13 @@ import RoomCard from './RoomCard';
 import axios from 'axios';
 
 export default function PopulateRooms(props) {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [rooms, setRooms] = useState([]);
   const [filteredRooms, setFilteredRooms] = useState([]);
 
   useEffect(() => {
     // Fetch room data from your Express server when the component mounts
-    axios.get('http://localhost:3001/api/getrooms')
+    axios.get(`${SERVER_URL}/api/getrooms`)
       .then((response) => {
         setRooms(response.data);
         setFilteredRooms(response.data);

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function YourRooms(props) {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const [rooms, setRooms] = useState([]);
   const [filteredRooms, setFilteredRooms] = useState([]);
   const userId = localStorage.getItem("userId"); // Get the userId from localStorage
@@ -22,7 +23,7 @@ export default function YourRooms(props) {
 
     // Fetch room data from your Express server when the component mounts
     axios
-      .get("http://localhost:3001/api/getrooms")
+      .get(`${SERVER_URL}/api/getrooms`)
       .then((response) => {
         const userRooms = response.data.filter(
           (room) => room.ownerId === userId
