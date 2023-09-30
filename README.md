@@ -25,20 +25,21 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    git clone https://github.com/ParthNS1/pg-finder.git
+   ```
 
 2. Navigate to the server directory and install the server dependencies:
 
-```shell
-  cd server
-  npm install
-```
+   ```shell
+   cd server
+   npm install
+   ```
 
 3. Navigate to the client directory and install the client dependencies:
 
-```shell
-  cd client
-  npm install
-```
+   ```shell
+   cd client
+   npm install
+   ```
 ## Running the Application
 
 
@@ -52,10 +53,10 @@ Before you can run this project, make sure you have the following installed:
    
 3. start the client
 
-```shell
+   ```shell
    cd client
    npm run start 
-```
+   ```
 (The client side will run on port 3000)
 
 ## Use
