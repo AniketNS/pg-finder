@@ -31,6 +31,8 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    cd server
+   ```
+   ```shell
    npm install
    ```
 
@@ -38,6 +40,8 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    cd client
+   ```
+   ```shell
    npm install
    ```
 ## Running the Application
@@ -47,6 +51,8 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    cd server
+   ```
+   ```shell
    nodemon index.js
    ```
  (The server will run on port 3001)
@@ -55,6 +61,8 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    cd client
+   ```
+   ```shell
    npm run start 
    ```
 (The client side will run on port 3000)
