@@ -28,26 +28,35 @@ Before you can run this project, make sure you have the following installed:
 
 2. Navigate to the server directory and install the server dependencies:
 
+```shell
   cd server
   npm install
+```
 
 3. Navigate to the client directory and install the client dependencies:
 
+```shell
   cd client
   npm install
-
+```
 ## Running the Application
 
 
 1. Start the server
 
+   ```shell
    cd server
-   nodemon index.js (The server will run on port 3001)
+   nodemon index.js
+   ```
+ (The server will run on port 3001)
+   
+3. start the client
 
-2. start the client
-
-   cd ../client
-   npm run start (The client side will run on port 3000)
+```shell
+   cd client
+   npm run start 
+```
+(The client side will run on port 3000)
 
 ## Use
 
