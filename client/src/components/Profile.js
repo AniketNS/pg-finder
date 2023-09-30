@@ -30,6 +30,47 @@ export default function Profile() {
       console.error("Error fetching user data:", error);
     }
   }, [SERVER_URL]);
+  const [modifiedData, setModifiedData] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+
+    // Update modifiedData with the changed field
+    setModifiedData((prevModifiedData) => ({
+      ...prevModifiedData,
+      [name]: value,
+    }));
+
+    // Call updateProfile to send the modified data to the server
+    updateProfile();
+  };
+  const [userData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    dateOfBirth: "",
+    addressLine1: "",
+    addressLine2: "",
+    area: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+    accountStatus: "",
+    verificationStatus: "",
+    aadhaarNumber: "",
+    mobileNumber: "",
+    createdAt: "",
+    updatedAt: "",
+    profilePictureLink: "",
+  });
+  const profilePictureLink ="https://static.thenounproject.com/png/3548602-200.png";
+
 
   const updateProfile = useCallback(async () => {
     try {
@@ -74,33 +115,11 @@ export default function Profile() {
     } else {
       navigate("/"); // Redirect to login if not logged in
     }
-  }, [SERVER_URL, fetchProfile, navigate]);
+  }, [SERVER_URL, fetchProfile, navigate,updateProfile]);
 
 
   // Define state variables to store user data
-  const [userData, setUserData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "",
-    dateOfBirth: "",
-    addressLine1: "",
-    addressLine2: "",
-    area: "",
-    city: "",
-    state: "",
-    country: "",
-    pincode: "",
-    accountStatus: "",
-    verificationStatus: "",
-    aadhaarNumber: "",
-    mobileNumber: "",
-    createdAt: "",
-    updatedAt: "",
-    profilePictureLink: "",
-  });
-  const profilePictureLink ="https://static.thenounproject.com/png/3548602-200.png";
-
+  
   // useEffect(() => {
   //   const userId = localStorage.getItem("userId");
   //   if (userId) {
@@ -110,24 +129,7 @@ export default function Profile() {
 
   
 
-  const [modifiedData, setModifiedData] = useState({});
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-
-    // Update modifiedData with the changed field
-    setModifiedData((prevModifiedData) => ({
-      ...prevModifiedData,
-      [name]: value,
-    }));
-
-    // Call updateProfile to send the modified data to the server
-    updateProfile();
-  };
+ 
 
   
 
@@ -160,7 +162,7 @@ export default function Profile() {
     if (isImageSelected) {
       updateProfile();
     }
-  }, [isImageSelected]);
+  }, [isImageSelected,updateProfile]);
 
 
   const handleLogout = () => {
