@@ -8,46 +8,6 @@ export default function Profile() {
   const SERVER_URL = process.env.REACT_APP_SERVER_URL;
   const navigate = useNavigate();
 
-  const fetchProfile = useCallback(async (userId) => {
-    try {
-      const token = localStorage.getItem("token");
-      const response = await axios.get(
-        `${SERVER_URL}/api/profile/${userId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        const data = response.data;
-        setUserData(data);
-      } else {
-        console.error("Failed to fetch user data");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  }, [SERVER_URL]);
-  const [modifiedData, setModifiedData] = useState({});
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUserData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-
-    // Update modifiedData with the changed field
-    setModifiedData((prevModifiedData) => ({
-      ...prevModifiedData,
-      [name]: value,
-    }));
-
-    // Call updateProfile to send the modified data to the server
-    updateProfile();
-  };
   const [userData, setUserData] = useState({
     firstName: "",
     lastName: "",
@@ -69,28 +29,36 @@ export default function Profile() {
     updatedAt: "",
     profilePictureLink: "",
   });
-  const profilePictureLink ="https://static.thenounproject.com/png/3548602-200.png";
 
-
+  const [modifiedData, setModifiedData] = useState({});
   const [profileImage, setProfileImage] = useState(null);
   const fileInputRef = useRef(null);
-
-  // Use a separate state to track when an image is selected
   const [isImageSelected, setIsImageSelected] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setProfileImage(imageFile);
-    setIsImageSelected(true); // Set the flag to indicate an image is selected
-  };
+  const profilePictureLink =
+    "https://static.thenounproject.com/png/3548602-200.png";
 
-  // Use a useEffect to trigger the profile update when an image is selected
-  useEffect(() => {
-    if (isImageSelected) {
-      updateProfile();
+  const fetchProfile = useCallback(async (userId) => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`${SERVER_URL}/api/profile/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 200) {
+        const data = response.data;
+        setUserData(data);
+      } else {
+        console.error("Failed to fetch user data");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
     }
-  }, [isImageSelected,updateProfile]);
-  
+  }, [SERVER_URL]);
+
   const updateProfile = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -125,6 +93,33 @@ export default function Profile() {
     }
   }, [userData, modifiedData, profileImage, SERVER_URL]);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+
+    setModifiedData((prevModifiedData) => ({
+      ...prevModifiedData,
+      [name]: value,
+    }));
+
+    updateProfile();
+  };
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setProfileImage(imageFile);
+    setIsImageSelected(true);
+  };
+
+  useEffect(() => {
+    if (isImageSelected) {
+      updateProfile();
+    }
+  }, [isImageSelected, updateProfile]);
+
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     const isLogin = localStorage.getItem("isLoggedIn");
@@ -132,29 +127,10 @@ export default function Profile() {
     if (userId && isLogin && isLoggedIn()) {
       fetchProfile(userId);
     } else {
-      navigate("/"); // Redirect to login if not logged in
+      navigate("/");
     }
-  }, [SERVER_URL, fetchProfile, navigate,updateProfile]);
+  }, [SERVER_URL, fetchProfile, navigate, updateProfile]);
 
-
-  // Define state variables to store user data
-  
-  // useEffect(() => {
-  //   const userId = localStorage.getItem("userId");
-  //   if (userId) {
-  //     fetchProfile(userId);
-  //   }
-  // }, []);
-
-  
-
- 
-
-  
-
-  const [isEditing, setIsEditing] = useState(false);
-
-  // // Function to toggle editing mode
   const toggleEditing = async () => {
     if (isEditing) {
       await updateProfile();
@@ -162,21 +138,15 @@ export default function Profile() {
     setIsEditing(!isEditing);
   };
 
-  // Experimental ==================================
-
-  
-
-
   const handleLogout = () => {
-    // Remove token, email id, and user id from localStorage
     localStorage.removeItem("token");
     localStorage.removeItem("email");
     localStorage.removeItem("userId");
     localStorage.removeItem("isLoggedIn");
 
     window.location.reload();
-
   };
+
 
 
   return (
