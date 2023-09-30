@@ -1,0 +1,195 @@
+.RoomCard::before {
+  content: "\2665"; /* Unicode for heart symbol */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: red; /* You can change the color of the heart icon */
+  cursor: pointer; /* Make it look clickable */
+  z-index: 2; /* Ensure it's above other content */
+  transition: color 0.3s ease; /* Add color transition on hover */
+}
+
+.RoomCard:hover::before {
+  color: #ff5252; /* Change the color on hover */
+}
+
+.RoomCard {
+  position: relative; /* Add position relative to the parent for absolute positioning of the heart icon */
+  display: flex;
+  border: 2px solid darkcyan;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  margin: 10px 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.favorite-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: red;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.favorite-icon:hover {
+  color: #ff5252;
+  transform: scale(1.2);
+
+}
+
+.RoomCard:hover {
+  transform: scale(1.03);
+  /* Slightly larger on hover */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  /* Add a shadow on hover */
+  background-color: #fff;
+  /* Change background color on hover */
+}
+
+.image {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKaddeXCd87fsKguk8xrVgWJPdvKfUoVHXb1seryyKHQ&s");
+  background-size: cover;
+  background-position: center;
+  width: 300px; /* Adjust the width to your desired rectangular shape */
+  height: 200px; /* Adjust the height to your desired rectangular shape */
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 4px solid #fff;
+  /* Add a border */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Add a box shadow */
+}
+
+.info {
+  flex: 1;
+  text-align: left;
+}
+
+.name {
+  font-size: 1.7rem;
+  /* Increase font size */
+  font-weight: bold;
+  color: darkcyan;
+  margin-bottom: 10px;
+  /* text-decoration: underline; */
+  /* Add underline */
+}
+
+p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.owner {
+  font-weight: bold;
+  color: #555;
+  /* Change color */
+}
+
+.address {
+  font-style: italic;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #f39c12;
+  /* Change color */
+}
+
+.rating-value {
+  font-weight: bold;
+  color: #f39c12;
+  margin-right: 5px;
+}
+
+.review-count {
+  color: #555;
+  margin-right: 5px;
+}
+.room-card-bold-text {
+  font-weight: 800;
+}
+.rating-text {
+  font-weight:bold;
+  color: #f39c12;
+  font-size:small;
+  border: 1px solid #f39c12;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Pricing Information */
+.room-price {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: bold;
+  color: #3498db; /* Change color */
+  margin-top: 10px; /* Add margin to separate from other content */
+}
+
+.price-value {
+  font-size: 1.5rem; /* Adjust font size */
+}
+
+.price-text {
+  margin-left: 5px; /* Add spacing between value and text */
+}
+
+/* Style for the icons */
+.features {
+  margin-top: 10px;
+}
+
+.features i {
+  font-size: 24px;
+  color: #f39c12;
+  margin-right: 10px;
+  border: 1px solid #f39c12;
+  padding: 5px;
+  border-radius: 9%;
+}
+
+/* Add styles for the buttons */
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.check-details-button,
+.book-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.check-details-button:hover,
+.book-button:hover {
+  background-color: #2980b9;
+}
+
+.book-button {
+  background-color: #27ae60;
+  margin: 10px;
+
+}
+
+.book-button:hover {
+  background-color: #219a52;
+}

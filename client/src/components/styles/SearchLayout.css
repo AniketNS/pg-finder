@@ -1,0 +1,173 @@
+/* SearchLayout component styles */
+.search-layout {
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  overflow: hidden; /* Hide any overflow beyond the fixed height */
+}
+
+/* Search bar styles */
+.search-layout-search-bar-container {
+  background-color: #f4f4f4; /* Background color to light gray */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid darkcyan; /* Border color to darkcyan */
+}
+
+.search-layout-search-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+/* Main content styles */
+.search-layout-main-content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+/* Sidebar styles */
+.search-layout-sidebar-container {
+  flex: 1;
+  background-color: lightblue;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 33.33%;
+  
+}
+
+.search-layout-sidebar-heading {
+  font-size:x-large;
+  color: darkcyan;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* Filter styles */
+.search-layout-filter {
+  margin-bottom: 20px;
+}
+
+/* Card container styles */
+/* Card container styles */
+.search-layout-card-container {
+  flex: 2;
+  padding: 20px;
+  background-color: #f4f4f4; /* Background color to light gray */
+  border: 1px solid darkcyan; /* Border color to darkcyan */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Add this line to make only the card container scrollable */
+}
+
+
+/* Location, Price Range, Amenities, and Room Type styles */
+.search-layout-filter select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  background-color: #f4f4f4; /* Background color to light gray */
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.search-layout-filter select:focus {
+  border-color: darkcyan; /* Border color on focus to darkcyan */
+  background-color: #fff; /* Background color on focus to white */
+}
+
+/* Checkbox styles */
+.features-checkboxes label {
+  display: block;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.features-checkboxes input[type="checkbox"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Highlight selected checkboxes */
+.features-checkboxes input[type="checkbox"]:checked + label {
+  font-weight: bold;
+  color: darkcyan; /* Color to darkcyan for selected checkboxes */
+}
+
+/* Search input container styles */
+.search-layout-search-input-container {
+  flex: 1;
+  margin-right: 10px; /* Add some spacing between the inputs */
+}
+
+/* Search input styles */
+.search-layout-search-input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Style the first input differently for PG Name */
+.search-layout-search-input:first-child {
+  border-color: darkcyan; /* Border color for PG Name */
+}
+
+/* Style the second input differently for City */
+.search-layout-search-input:last-child {
+  border-color: darkcyan; /* Border color for City */
+}
+
+
+
+
+
+/* Stylish Sorting Option */
+.sorting-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sorting-label {
+  margin-right: 10px;
+  font-size: 18px;
+  color: darkcyan;
+}
+
+.sorting-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex; /* Add flex display to align icon and text horizontally */
+  align-items: center; /* Vertically center the icon and text */
+}
+
+.sorting-toggle i {
+  font-size: 24px;
+  color: darkcyan;
+  margin-right: 5px; /* Add margin between icon and text */
+  transition: transform 0.3s;
+}
+
+.sorting-toggle span {
+  font-size: 16px; /* Adjust text font size */
+  color: darkcyan;
+}
+
+.sorting-toggle:hover i {
+  transform: scale(1.2);
+}

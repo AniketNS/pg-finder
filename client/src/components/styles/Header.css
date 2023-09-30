@@ -1,0 +1,67 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  
+  
+  .navbar {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    padding: 12px 48px;
+    justify-content: space-between;
+    background-color: #fff;
+    border-bottom: 2px solid darkcyan;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-logo {
+    flex: 1;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 32px;
+    color: darkcyan;
+    text-decoration: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    z-index: 2;
+
+    justify-content: space-between;
+  }
+  
+  .nav-links a {
+    z-index: 2;
+    text-decoration: none;
+    color: #333;
+    margin: 12px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: darkcyan;
+  }
+  
+  .nav-cta {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .nav-cta a {
+    color: #fff;
+    text-decoration: none;
+    margin: 8px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: darkcyan;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add the box-shadow here */
+  }
+  
+  .nav-cta a:hover {
+    background-color: #009999;
+  }
