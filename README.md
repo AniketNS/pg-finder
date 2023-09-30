@@ -25,6 +25,7 @@ Before you can run this project, make sure you have the following installed:
 
    ```shell
    git clone https://github.com/ParthNS1/pg-finder.git
+<<<<<<< HEAD
 
 2. Navigate to the server directory and install the server dependencies:
 
@@ -36,11 +37,33 @@ Before you can run this project, make sure you have the following installed:
   cd client
   npm install
 
+=======
+   ```
+
+2. Navigate to the server directory and install the server dependencies:
+
+   ```shell
+   cd server
+   ```
+   ```shell
+   npm install
+   ```
+
+3. Navigate to the client directory and install the client dependencies:
+
+   ```shell
+   cd client
+   ```
+   ```shell
+   npm install
+   ```
+>>>>>>> ac1a11a208b5f54f493f14368281b513a878a7a0
 ## Running the Application
 
 
 1. Start the server
 
+<<<<<<< HEAD
    cd server
    nodemon index.js (The server will run on port 3001)
 
@@ -48,6 +71,25 @@ Before you can run this project, make sure you have the following installed:
 
    cd ../client
    npm run start (The client side will run on port 3000)
+=======
+   ```shell
+   cd server
+   ```
+   ```shell
+   nodemon index.js
+   ```
+ (The server will run on port 3001)
+   
+3. start the client
+
+   ```shell
+   cd client
+   ```
+   ```shell
+   npm run start 
+   ```
+(The client side will run on port 3000)
+>>>>>>> ac1a11a208b5f54f493f14368281b513a878a7a0
 
 ## Use
 
