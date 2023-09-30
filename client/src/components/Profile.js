@@ -1,17 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import "./styles/Profile.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import isLoggedIn from "../utils/authUtils"; 
-
+import isLoggedIn from "../utils/authUtils";
 
 export default function Profile() {
-
   const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
   const navigate = useNavigate();
 
-  const fetchProfile = async (userId) => {
+  const fetchProfile = useCallback(async (userId) => {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.get(
@@ -32,23 +29,24 @@ export default function Profile() {
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
-  };
-  const updateProfile = async () => {
+  }, [SERVER_URL]);
+
+  const updateProfile = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
       const userId = localStorage.getItem("userId");
 
-      const updatedData = { ...userData, ...modifiedData }; // Merge userData and modifiedData
+      const updatedData = { ...userData, ...modifiedData };
 
       const formData = new FormData();
-      formData.append("profileImage", profileImage); // Append the profile image to the form data
+      formData.append("profileImage", profileImage);
       for (const key in updatedData) {
         formData.append(key, updatedData[key]);
       }
 
       const response = await axios.put(
         `${SERVER_URL}/api/profile/${userId}`,
-        formData, // Send the merged data to the server
+        formData,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -65,7 +63,7 @@ export default function Profile() {
     } catch (error) {
       console.error("Error updating user profile:", error);
     }
-  };
+  }, [userData, modifiedData, profileImage, SERVER_URL]);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -76,7 +74,7 @@ export default function Profile() {
     } else {
       navigate("/"); // Redirect to login if not logged in
     }
-  }, [SERVER_URL,fetchProfile,updateProfile,navigate]);
+  }, [SERVER_URL, fetchProfile, navigate]);
 
 
   // Define state variables to store user data
