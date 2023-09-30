@@ -1,6 +1,6 @@
-# PG Finder - (MERN STACK PROJECT)
+# PG Finder - (Paying Guest Finder) - A MERN STACK PROJECT
 
-Welcome to PG Finder! This is a project that helps you find paying guest accommodations. It consists of a server and a client application. To get started, follow the steps below.
+Welcome to PG Finder! This is a project in MERN STACK that helps you find paying guest accommodations. It consists of a server and a client application. To get started, follow the steps below.
 
 ## Prerequisites
 
