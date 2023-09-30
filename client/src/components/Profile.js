@@ -72,6 +72,25 @@ export default function Profile() {
   const profilePictureLink ="https://static.thenounproject.com/png/3548602-200.png";
 
 
+  const [profileImage, setProfileImage] = useState(null);
+  const fileInputRef = useRef(null);
+
+  // Use a separate state to track when an image is selected
+  const [isImageSelected, setIsImageSelected] = useState(false);
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setProfileImage(imageFile);
+    setIsImageSelected(true); // Set the flag to indicate an image is selected
+  };
+
+  // Use a useEffect to trigger the profile update when an image is selected
+  useEffect(() => {
+    if (isImageSelected) {
+      updateProfile();
+    }
+  }, [isImageSelected,updateProfile]);
+  
   const updateProfile = useCallback(async () => {
     try {
       const token = localStorage.getItem("token");
@@ -145,24 +164,7 @@ export default function Profile() {
 
   // Experimental ==================================
 
-  const [profileImage, setProfileImage] = useState(null);
-  const fileInputRef = useRef(null);
-
-  // Use a separate state to track when an image is selected
-  const [isImageSelected, setIsImageSelected] = useState(false);
-
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setProfileImage(imageFile);
-    setIsImageSelected(true); // Set the flag to indicate an image is selected
-  };
-
-  // Use a useEffect to trigger the profile update when an image is selected
-  useEffect(() => {
-    if (isImageSelected) {
-      updateProfile();
-    }
-  }, [isImageSelected,updateProfile]);
+  
 
 
   const handleLogout = () => {
