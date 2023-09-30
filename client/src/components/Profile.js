@@ -20,7 +20,7 @@ export default function Profile() {
     } else {
       navigate("/"); // Redirect to login if not logged in
     }
-  }, [SERVER_URL]);
+  }, [SERVER_URL,fetchProfile,updateProfile]);
 
 
   // Define state variables to store user data
