@@ -4,6 +4,8 @@ import "./styles/AddRoom.css";
 import { useNavigate } from "react-router-dom";
 
 export default function AddRoom() {
+  const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
   const navigate = useNavigate();
   const initialRoomData = {
     roomName: "",
@@ -34,7 +36,6 @@ export default function AddRoom() {
   });
 
   useEffect(() => {
-    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
     // Check if the user is logged in
     const isLoggedIn = localStorage.getItem("isLoggedIn");

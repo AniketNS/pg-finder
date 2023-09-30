@@ -4,6 +4,7 @@ import "./styles/SearchLayout.css";
 import PopulateRooms from "./PopulateRooms";
 
 export default function SearchLayout() {
+
   const [selectedPriceRange, setSelectedPriceRange] = useState("");
   const [selectedFeatures, setselectedFeatures] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -21,7 +22,7 @@ export default function SearchLayout() {
       const address = searchParams.get('address');
       setSearchAddress(address); // Set the city name as the default text in the search address input
     }
-  }, [location.search,SERVER_URL]);
+  }, [location.search]);
 
   const toggleSortingOrder = () => {
     setSortingOrder(sortingOrder === "asc" ? "desc" : "asc");
