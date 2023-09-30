@@ -23,7 +23,7 @@ function RoomDetails() {
       .catch((error) => {
         console.error("Error fetching room data:", error);
       });
-  }, [roomId]);
+  }, [roomId,SERVER_URL]);
 
   if (!roomData) {
     return <div className="loading-container">Loading...</div>;

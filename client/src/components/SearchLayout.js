@@ -21,7 +21,7 @@ export default function SearchLayout() {
       const address = searchParams.get('address');
       setSearchAddress(address); // Set the city name as the default text in the search address input
     }
-  }, [location.search]);
+  }, [location.search,SERVER_URL]);
 
   const toggleSortingOrder = () => {
     setSortingOrder(sortingOrder === "asc" ? "desc" : "asc");

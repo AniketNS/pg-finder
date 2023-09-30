@@ -17,7 +17,7 @@ export default function PopulateRooms(props) {
       .catch((error) => {
         console.error('Error fetching room data:', error);
       });
-  }, []);
+  }, [SERVER_URL]);
 
   useEffect(() => {
     let filtered = rooms.filter((room) => {

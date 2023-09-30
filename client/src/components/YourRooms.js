@@ -34,7 +34,7 @@ export default function YourRooms(props) {
       .catch((error) => {
         console.error("Error fetching room data:", error);
       });
-  }, [userId, navigate]); // Include userId and navigate in the dependency array
+  }, [userId, navigate, SERVER_URL]); // Include userId and navigate in the dependency array
 
   useEffect(() => {
     let filtered = rooms.filter((room) => {
@@ -58,6 +58,7 @@ export default function YourRooms(props) {
     props.searchAddress,
     props.searchOwnerName,
     props.sortingOrder,
+    SERVER_URL
   ]);
 
   return (

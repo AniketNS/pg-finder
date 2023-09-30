@@ -64,7 +64,7 @@ export default function ScheduleVisit() {
       // Redirect to the login page or display an error message
       navigate("/login"); // Adjust the route to your login page
     }
-  }, [navigate]);
+  }, [navigate,SERVER_URL]);
 
   return (
     <div className="schedule-visit-container">

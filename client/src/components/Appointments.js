@@ -31,7 +31,7 @@ export default function UserAppointments() {
       .catch((error) => {
         console.error("Error fetching appointments:", error);
       });
-  }, []);
+  }, [SERVER_URL]);
 
   const determineNewStatus = (action) => {
     switch (action) {

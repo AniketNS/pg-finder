@@ -16,7 +16,7 @@ export default function PopulateFeatured() {
       .catch((error) => {
         console.error('Error fetching featured room data:', error);
       });
-  }, []);
+  }, [SERVER_URL]);
 
   return (
     <div className="populate-featured-container">

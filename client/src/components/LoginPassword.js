@@ -17,7 +17,7 @@ export default function LoginPassword() {
     if (!email) {
       navigate('/login');
     }
-  }, [email, navigate]);
+  }, [email, navigate, SERVER_URL]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
