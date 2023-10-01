@@ -169,7 +169,7 @@ export default function Profile() {
             <img
               src={
                 userData.profilePictureLink
-                  ? `http://localhost:3001${userData.profilePictureLink}`
+                  ? `${SERVER_URL}${userData.profilePictureLink}`
                   : profilePictureLink
               }
               alt="ProfileImage"
