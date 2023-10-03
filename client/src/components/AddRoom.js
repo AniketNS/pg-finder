@@ -85,8 +85,11 @@ export default function AddRoom() {
       }
   
       // Send the formData to your server using Axios
-      await axios.post(`${SERVER_URL}/api/createroom`, formData);
-  
+      const result = await axios.post(`${SERVER_URL}/api/createroom`, formData);
+      
+      if(result){
+        navigate('/rooms');
+      }
       // Handle the successful response here
     } catch (error) {
       // Handle the error here
@@ -98,9 +101,7 @@ export default function AddRoom() {
         console.error("An error occurred:", error.message);
       }
     }
-    finally {
-      navigate('/rooms');
-    }
+    
   };
   
 

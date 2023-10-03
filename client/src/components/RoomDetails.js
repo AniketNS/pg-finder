@@ -69,6 +69,8 @@ function RoomDetails() {
 
   const thumbnailImageUrl = `${SERVER_URL}${thumbnailImage}`;
   const photoUrls = photos.map((photo) => `${SERVER_URL}${photo}`);
+  console.log(thumbnailImageUrl);
+  console.log(photoUrls);
 
   const handleSchedule = () => {
     // Navigate to the room details page with the room ID
