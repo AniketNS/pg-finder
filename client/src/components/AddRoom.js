@@ -62,7 +62,9 @@ export default function AddRoom() {
   //   });
   // };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
     try {
       const formData = new FormData();
   
