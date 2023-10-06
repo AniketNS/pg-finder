@@ -90,7 +90,7 @@ export default function AddRoom() {
       const result = await axios.post(`${SERVER_URL}/api/createroom`, formData);
       
       if(result){
-        navigate('/rooms');
+        await navigate('/rooms');
       }
       // Handle the successful response here
     } catch (error) {
