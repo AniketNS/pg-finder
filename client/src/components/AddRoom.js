@@ -62,8 +62,11 @@ export default function AddRoom() {
   //   });
   // };
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
+    setIsLoading(true); // Start loading
   
     try {
       const formData = new FormData();
@@ -90,11 +93,15 @@ export default function AddRoom() {
       const result = await axios.post(`${SERVER_URL}/api/createroom`, formData);
   
       if (result) {
+        // Reset the form only after successful submission
+        setRoomData(initialRoomData);
+        setSelectedFeatures([]);
+        setIsLoading(false); // Stop loading
         await navigate('/rooms');
       }
-  
-      // Handle the successful response here
     } catch (error) {
+      setIsLoading(false); // Stop loading
+  
       // Handle the error here
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
@@ -105,6 +112,7 @@ export default function AddRoom() {
       }
     }
   };
+  
   
   
 
