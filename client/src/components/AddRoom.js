@@ -64,7 +64,10 @@ export default function AddRoom() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
-
+  
+    // Disable the submit button to prevent multiple submissions
+    document.querySelector(".add-room-button").disabled = true;
+  
     try {
       const formData = new FormData();
   
@@ -88,12 +91,19 @@ export default function AddRoom() {
   
       // Send the formData to your server using Axios
       const result = await axios.post(`${SERVER_URL}/api/createroom`, formData);
-      
-      if(result){
+  
+      if (result) {
         await navigate('/rooms');
       }
+  
+      // Re-enable the submit button after the form submission is complete
+      document.querySelector(".add-room-button").disabled = false;
+  
       // Handle the successful response here
     } catch (error) {
+      // Re-enable the submit button in case of an error
+      document.querySelector(".add-room-button").disabled = false;
+  
       // Handle the error here
       if (error.response) {
         console.error("Server responded with an error:", error.response.data);
@@ -103,8 +113,8 @@ export default function AddRoom() {
         console.error("An error occurred:", error.message);
       }
     }
-    
   };
+  
   
 
   const handleThumbnailUpload = (e) => {
