@@ -1,39 +1,35 @@
-/* SearchLayout component styles */
 .search-layout {
   display: flex;
   flex-direction: column;
   background-color: #f4f4f4;
-  overflow: hidden; /* Hide any overflow beyond the fixed height */
+  overflow: hidden; 
 }
 
-/* Search bar styles */
 .search-layout-search-bar-container {
-  background-color: #f4f4f4; /* Background color to light gray */
+  background-color: #f4f4f4; 
   padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid darkcyan; /* Border color to darkcyan */
+  border-bottom: 1px solid darkcyan; 
 }
 
 .search-layout-search-input {
   width: 100%;
   padding: 10px;
-  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border: 2px solid darkcyan; 
   border-radius: 5px;
   font-size: 16px;
   margin-bottom: 20px;
   outline: none;
 }
 
-/* Main content styles */
 .search-layout-main-content {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
 }
 
-/* Sidebar styles */
 .search-layout-sidebar-container {
   flex: 1;
   background-color: lightblue;
@@ -51,42 +47,37 @@
   font-weight: 600;
 }
 
-/* Filter styles */
 .search-layout-filter {
   margin-bottom: 20px;
 }
 
-/* Card container styles */
-/* Card container styles */
 .search-layout-card-container {
   flex: 2;
   padding: 20px;
-  background-color: #f4f4f4; /* Background color to light gray */
-  border: 1px solid darkcyan; /* Border color to darkcyan */
+  background-color: #f4f4f4; 
+  border: 1px solid darkcyan; 
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow-y: auto; /* Add this line to make only the card container scrollable */
+  overflow-y: auto; 
 }
 
 
-/* Location, Price Range, Amenities, and Room Type styles */
 .search-layout-filter select {
   width: 100%;
   padding: 10px;
-  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border: 2px solid darkcyan; 
   border-radius: 5px;
   font-size: 16px;
   outline: none;
-  background-color: #f4f4f4; /* Background color to light gray */
+  background-color: #f4f4f4; 
   transition: border-color 0.3s, background-color 0.3s;
 }
 
 .search-layout-filter select:focus {
-  border-color: darkcyan; /* Border color on focus to darkcyan */
-  background-color: #fff; /* Background color on focus to white */
+  border-color: darkcyan; 
+  background-color: #fff; 
 }
 
-/* Checkbox styles */
 .features-checkboxes label {
   display: block;
   margin-bottom: 10px;
@@ -99,43 +90,34 @@
   margin-right: 8px;
 }
 
-/* Highlight selected checkboxes */
+
 .features-checkboxes input[type="checkbox"]:checked + label {
   font-weight: bold;
-  color: darkcyan; /* Color to darkcyan for selected checkboxes */
+  color: darkcyan; 
 }
 
-/* Search input container styles */
 .search-layout-search-input-container {
   flex: 1;
-  margin-right: 10px; /* Add some spacing between the inputs */
+  margin-right: 10px; 
 }
 
-/* Search input styles */
 .search-layout-search-input {
   width: 100%;
   padding: 10px;
-  border: 2px solid darkcyan; /* Border color to darkcyan */
+  border: 2px solid darkcyan; 
   border-radius: 5px;
   font-size: 16px;
   outline: none;
 }
 
-/* Style the first input differently for PG Name */
 .search-layout-search-input:first-child {
-  border-color: darkcyan; /* Border color for PG Name */
+  border-color: darkcyan; 
 }
 
-/* Style the second input differently for City */
 .search-layout-search-input:last-child {
-  border-color: darkcyan; /* Border color for City */
+  border-color: darkcyan;
 }
 
-
-
-
-
-/* Stylish Sorting Option */
 .sorting-container {
   display: flex;
   align-items: center;
@@ -152,22 +134,49 @@
   background: none;
   border: none;
   cursor: pointer;
-  display: flex; /* Add flex display to align icon and text horizontally */
-  align-items: center; /* Vertically center the icon and text */
+  display: flex; 
+  align-items: center;
 }
 
 .sorting-toggle i {
   font-size: 24px;
   color: darkcyan;
-  margin-right: 5px; /* Add margin between icon and text */
+  margin-right: 5px; 
   transition: transform 0.3s;
 }
 
 .sorting-toggle span {
-  font-size: 16px; /* Adjust text font size */
+  font-size: 16px; 
   color: darkcyan;
 }
 
 .sorting-toggle:hover i {
   transform: scale(1.2);
+}
+
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .search-layout-main-content {
+    flex-direction: column; /* Stack sidebar and card container vertically */
+  }
+
+  .search-layout-sidebar-container {
+    max-width: 100%; /* Expand to full width */
+    margin-bottom: 20px; /* Add some spacing between sidebar and card container */
+  }
+}
+
+/* Responsive styles for even smaller screens (e.g., mobile) */
+@media screen and (max-width: 480px) {
+  .search-layout-search-bar-container {
+    flex-direction: column; /* Stack search inputs vertically */
+    align-items: stretch; /* Stretch search inputs to full width */
+  }
+
+  .search-layout-search-input-container {
+    margin-right: 0; /* Remove margin between search inputs */
+    margin-bottom: 10px; /* Add spacing between search inputs */
+  }
 }
