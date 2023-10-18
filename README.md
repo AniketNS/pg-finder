@@ -89,7 +89,6 @@ Before you can run this project, make sure you have the following installed:
    npm run start 
    ```
 (The client side will run on port 3000)
->>>>>>> ac1a11a208b5f54f493f14368281b513a878a7a0
 
 ## Use
 
