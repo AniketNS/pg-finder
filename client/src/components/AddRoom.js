@@ -62,7 +62,7 @@ export default function AddRoom() {
   //   });
   // };
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
