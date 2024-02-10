@@ -104,8 +104,6 @@ export default function Profile() {
       ...prevModifiedData,
       [name]: value,
     }));
-
-    updateProfile();
   };
 
   const handleImageChange = (event) => {
@@ -114,11 +112,16 @@ export default function Profile() {
     setIsImageSelected(true);
   };
 
-  useEffect(() => {
-    if (isImageSelected) {
+  const toggleEditing = () => {
+    setIsEditing(!isEditing);
+    if (!isEditing) {
       updateProfile();
     }
-  }, [isImageSelected, updateProfile]);
+  };
+
+  const handleUpdateButtonClick = () => {
+    updateProfile();
+  };
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
@@ -129,14 +132,18 @@ export default function Profile() {
     } else {
       navigate("/");
     }
-  }, [SERVER_URL, fetchProfile, navigate, updateProfile]);
+  }, [SERVER_URL, fetchProfile, navigate]);
 
-  const toggleEditing = async () => {
-    if (isEditing) {
-      await updateProfile();
+  useEffect(() => {
+    if (isImageSelected) {
+      updateProfile();
     }
-    setIsEditing(!isEditing);
-  };
+  }, [isImageSelected, updateProfile]);
+
+  useEffect(() => {
+    console.log("userData changed:", userData);
+    console.log("modifiedData changed:", modifiedData);
+  }, [userData, modifiedData]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -464,6 +471,7 @@ export default function Profile() {
         </div>
       </div>
       <div className="logout-button">
+        <button onClick={handleUpdateButtonClick}>Update</button>
         <button onClick={handleLogout}>Logout</button>
       </div>
     </div>

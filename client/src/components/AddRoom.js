@@ -62,7 +62,7 @@ export default function AddRoom() {
   //   });
   // };
 
-  const [setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
@@ -365,9 +365,9 @@ export default function AddRoom() {
           />
         </div>
       </div>
-      <button className="add-room-button" type="submit">
-        Add Room
-      </button>
+      <button className="add-room-button" type="submit" disabled={isLoading}>
+  {isLoading ? 'Adding Room...' : 'Add Room'}
+</button>
     </form>
   );
 }
