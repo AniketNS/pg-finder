@@ -15,7 +15,7 @@ export default function LoginPassword() {
 
   useEffect(() => {
     if (!email) {
-      navigate('/login');
+      navigate('/search');
     }
   }, [email, navigate, SERVER_URL]);
 
